@@ -10,39 +10,39 @@ const misAhorros = {
     metas: [],
     ingresos: [],
     gastos: [],
-    categoriasMetas: ['🏠 Vivienda', '🚗 Vehículo', '✈️ Viajes', '📚 Estudios', '🎁 Regalos'],
-    categoriasGastos: ['🍽️ Alimentación', '🚌 Transporte', '🏠 Vivienda', '📱 Servicios', '🎮 Entretenimiento']
+    categoriasMetas: [' Vivienda', ' Vehículo', ' Viajes', ' Estudios', ' Regalos'],
+    categoriasGastos: [' Alimentación', ' Transporte', ' Vivienda', ' Servicios', ' Entretenimiento']
 };
 
 // Mensajes motivacionales y del sistema
 const MENSAJES = {
     bienvenida: 
         "=== ¡Bienvenido a Tu Asistente de Ahorro! ===\n" +
-        "💰 ¡Juntos alcanzaremos tus metas financieras! 💰\n",
+        " ¡Juntos alcanzaremos tus metas financieras! \n",
     
     menuPrincipal:
         "=== ¿Qué te gustaría hacer hoy? ===\n" +
-        "1. 🎯 Establecer nueva meta de ahorro\n" +
-        "2. 💰 Registrar ingreso\n" +
-        "3. 📝 Registrar gasto\n" +
-        "4. 📊 Ver progreso de ahorro\n" +
-        "5. ❌ Salir\n",
+        "1.  Establecer nueva meta de ahorro\n" +
+        "2.  Registrar ingreso\n" +
+        "3.  Registrar gasto\n" +
+        "4.  Ver progreso de ahorro\n" +
+        "5.  Salir\n",
+
+    nuevaMeta: " ¿Cuánto quieres ahorrar para tu meta?",
+    descripcionMeta: " Describe tu meta de ahorro:",
+    seleccionCategoria: " Elige una categoría para tu meta:",
     
-    nuevaMeta: "🎯 ¿Cuánto quieres ahorrar para tu meta?",
-    descripcionMeta: "📝 Describe tu meta de ahorro:",
-    seleccionCategoria: "🔍 Elige una categoría para tu meta:",
+    ingresoMonto: " ¿Cuánto dinero recibiste?",
+    ingresoDescripcion: " Describe el origen de este ingreso:",
     
-    ingresoMonto: "💰 ¿Cuánto dinero recibiste?",
-    ingresoDescripcion: "📝 Describe el origen de este ingreso:",
+    gastoMonto: " ¿Cuánto gastaste?",
+    gastoDescripcion: " Describe en qué lo gastaste:",
     
-    gastoMonto: "📤 ¿Cuánto gastaste?",
-    gastoDescripcion: "📝 Describe en qué lo gastaste:",
-    
-    exito: "✅ ¡Operación realizada con éxito!",
-    error: "❌ ¡Ups! Algo salió mal. Intenta de nuevo.",
-    
-    despedida: "👋 ¡Gracias por usar tu asistente de ahorro!\n" +
-               "¡Recuerda: Cada peso ahorrado es un paso más hacia tu meta! 🌟"
+    exito: " ¡Operación realizada con éxito!",
+    error: " ¡Ups! Algo salió mal. Intenta de nuevo.",
+
+    despedida: "¡Gracias por usar tu asistente de ahorro!\n" +
+               "¡Recuerda: Cada peso ahorrado es un paso más hacia tu meta!"
 };
 
 // Función para establecer nueva meta de ahorro
@@ -53,7 +53,7 @@ function establecerMeta() {
         return;
     }
 
-    let mensajeCategoria = "🎯 Elige el tipo de meta:\n";
+    let mensajeCategoria = " Elige el tipo de meta:\n";
     misAhorros.categoriasMetas.forEach((cat, index) => {
         mensajeCategoria += `${index + 1}. ${cat}\n`;
     });
@@ -69,7 +69,7 @@ function establecerMeta() {
         fecha: new Date()
     });
 
-    alert("🎉 ¡Nueva meta establecida! ¡Tú puedes lograrlo!");
+    alert(" ¡Nueva meta establecida! ¡Tú puedes lograrlo!");
 }
 
 // Función para agregar ingreso
@@ -93,7 +93,7 @@ function registrarIngreso() {
     }
     const descripcion = prompt(MENSAJES.ingresoDescripcion);
     misAhorros.ingresos.push({ monto, descripcion, fecha: new Date() });
-    alert("💰 ¡Ingreso registrado! ¡Buen trabajo!");
+    alert(" ¡Ingreso registrado! ¡Buen trabajo!");
 }
 
 // Función para agregar gasto
@@ -104,7 +104,7 @@ function agregarGasto() {
         return;
     }
 
-    let mensajeCategoria = "📋 Categorías disponibles:\n";
+    let mensajeCategoria = " Categorías disponibles:\n";
     presupuesto.categorias.forEach((cat, index) => {
         mensajeCategoria += `${index + 1}. ${cat}\n`;
     });
@@ -133,7 +133,7 @@ function registrarGasto() {
         return;
     }
 
-    let mensajeCategoria = "📝 Tipo de gasto:\n";
+    let mensajeCategoria = " Tipo de gasto:\n";
     misAhorros.categoriasGastos.forEach((cat, index) => {
         mensajeCategoria += `${index + 1}. ${cat}\n`;
     });
@@ -148,7 +148,7 @@ function registrarGasto() {
         fecha: new Date()
     });
 
-    alert("📝 Gasto registrado. ¡Recuerda mantener el control de tus gastos!");
+    alert(" Gasto registrado. ¡Recuerda mantener el control de tus gastos!");
 }
 
 // Función para mostrar balance
@@ -157,11 +157,11 @@ function mostrarBalance() {
     const totalGastos = presupuesto.gastos.reduce((sum, gasto) => sum + gasto.monto, 0);
     const balance = totalIngresos - totalGastos;
 
-    let mensaje = "📊 === RESUMEN FINANCIERO ===\n\n";
-    mensaje += `💰 Total Ingresos: $${totalIngresos.toFixed(2)}\n`;
-    mensaje += `📝 Total Gastos: $${totalGastos.toFixed(2)}\n`;
-    mensaje += `\n💵 Balance actual: $${balance.toFixed(2)}\n`;
-    
+    let mensaje = "=== RESUMEN FINANCIERO ===\n\n";
+    mensaje += `Total Ingresos: $${totalIngresos.toFixed(2)}\n`;
+    mensaje += `Total Gastos: $${totalGastos.toFixed(2)}\n`;
+    mensaje += `\nBalance actual: $${balance.toFixed(2)}\n`;
+
     console.log(mensaje);
     alert(mensaje);
 }
@@ -172,13 +172,13 @@ function mostrarProgreso() {
     const totalGastos = misAhorros.gastos.reduce((sum, gasto) => sum + gasto.monto, 0);
     const ahorroActual = totalIngresos - totalGastos;
 
-    let mensaje = "=== 📊 Tu Progreso de Ahorro ===\n\n";
-    mensaje += `💰 Total Ingresos: $${totalIngresos.toFixed(2)}\n`;
-    mensaje += `📝 Total Gastos: $${totalGastos.toFixed(2)}\n`;
-    mensaje += `🎯 Ahorro Actual: $${ahorroActual.toFixed(2)}\n\n`;
-    
+    let mensaje = "=== Tu Progreso de Ahorro ===\n\n";
+    mensaje += `Total Ingresos: $${totalIngresos.toFixed(2)}\n`;
+    mensaje += `Total Gastos: $${totalGastos.toFixed(2)}\n`;
+    mensaje += `Ahorro Actual: $${ahorroActual.toFixed(2)}\n\n`;
+
     if (misAhorros.metas.length > 0) {
-        mensaje += "🎯 Progreso de tus metas:\n";
+        mensaje += "Progreso de tus metas:\n";
         misAhorros.metas.forEach(meta => {
             const progreso = (ahorroActual / meta.monto * 100).toFixed(1);
             mensaje += `${meta.categoria}: ${progreso}% de $${meta.monto}\n`;
